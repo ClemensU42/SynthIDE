@@ -1,0 +1,6 @@
+# QT Specific
+.qmlls.ini
+
+# CLion Specific
+.idea/
+cmake-build-*/
