@@ -19,23 +19,23 @@ To get started, please first read the contribution guidelines and then simpley p
 This Roadmap serves as a rough overview of the major features.
 
 - MVP
-  -[ ] Node Editor
-  -[ ] Serialisation
-  -[ ] Audio Synthesis
-  -[ ] Midi Interfacing
-  -[ ] Oscilloscope view
+  - [ ] Node Editor
+  - [ ] Serialisation
+  - [ ] Audio Synthesis
+  - [ ] Midi Interfacing
+  - [ ] Oscilloscope view
 - 1.0 Release
-  -[ ] LUA as Node code backend
-  -[ ] Transpiler from Lua to C for embedded and VST export
-  -[ ] STM32 Code export
-  -[ ] Sample playing and recording
-  -[ ] Custom Node Editor
-  -[ ] Oscilloscope view inside Nodes
-  -[ ] Audio recording
-  -[ ] External audio input
+  - [ ] LUA as Node code backend
+  - [ ] Transpiler from Lua to C for embedded and VST export
+  - [ ] STM32 Code export
+  - [ ] Sample playing and recording
+  - [ ] Custom Node Editor
+  - [ ] Oscilloscope view inside Nodes
+  - [ ] Audio recording
+  - [ ] External audio input
 - Future features
-  -[ ] VST3 code export
-  -[ ] Dedicated Hardware Interface for custom controller
+  - [ ] VST3 code export
+  - [ ] Dedicated Hardware Interface for custom controller
 
 ## Releases
 Since this project is still at the very beginning, there are no releases just yet.
