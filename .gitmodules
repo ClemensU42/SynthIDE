@@ -1,3 +1,9 @@
-[submodule "submodules/QuickQanava"]
-	path = submodules/QuickQanava
-	url = https://github.com/cneben/QuickQanava
+[submodule "submodules/glfw"]
+	path = submodules/glfw
+	url = https://github.com/glfw/glfw
+[submodule "submodules/imnodes"]
+	path = submodules/imnodes
+	url = https://github.com/Nelarius/imnodes
+[submodule "submodules/imgui"]
+	path = submodules/imgui
+	url = https://github.com/ocornut/imgui

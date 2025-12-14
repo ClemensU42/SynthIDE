@@ -1,32 +1,27 @@
-cmake_minimum_required(VERSION 4.0)
-project(SynthCreator LANGUAGES CXX)
+cmake_minimum_required(VERSION 3.16)
+project(SynthCreator LANGUAGES C CXX)
 
-set(CMAKE_CXX_STANDARD 23)
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
-set(CMAKE_AUTOUIC ON)
-set(QT_QML_GENERATE_QMLLS_INI ON)
-set(QT_FORCE_CMP0156_TO_VALUE NEW)
+set(CMAKE_CXX_STANDARD 17)
 
+add_subdirectory(submodules/glfw)
+add_subdirectory(src/rendering_backend)
 
-find_package(Qt6 REQUIRED COMPONENTS
-        Quick
+add_executable(SynthCreator main.cpp)
+
+target_compile_options(SynthCreator PRIVATE
+        $<$<CXX_COMPILER_ID:GNU,Clang>:-Werror>
+        $<$<CXX_COMPILER_ID:MSVC>:/WX>
 )
 
-qt_standard_project_setup()
-
-qt_policy(SET QTP0004 NEW)
-qt_policy(SET QTP0001 NEW)
-
-qt_add_executable(SynthCreator main.cpp
+target_link_libraries(SynthCreator PUBLIC
+        glfw
+        RenderingBackend
 )
 
-qt_add_qml_module(
-        SynthCreator
-        URI "Main"
-        QML_FILES "Widgets/AppWindow.qml"
-)
-target_link_libraries(SynthCreator
-    PRIVATE
-        Qt6::Quick
+target_include_directories(SynthCreator PUBLIC
+        include
+
+        glad/include
+
+        submodules/glfw/include
 )
