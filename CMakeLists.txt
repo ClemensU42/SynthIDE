@@ -21,6 +21,8 @@ add_executable(SynthCreator
         submodules/imgui/imgui_draw.cpp
         submodules/imgui/backends/imgui_impl_opengl3.cpp
         submodules/imgui/backends/imgui_impl_glfw.cpp
+
+        submodules/imnodes/imnodes.cpp
 )
 
 add_subdirectory(src/rendering_backend)
@@ -42,4 +44,5 @@ target_include_directories(SynthCreator PUBLIC
         glad/include
         submodules/glfw/include
         submodules/imgui
+        submodules/imnodes
 )

@@ -8,15 +8,22 @@
 #include <functional>
 #include <GLFW/glfw3.h>
 
-struct AppWindow {
+#include "ui/widgets/NodeWidget.h"
+#include "ui/widgets/nodes/MidiNode.h"
+
+class AppWindow {
+public:
     bool initialized = false;
     GLFWwindow* window;
-    std::function<void()> updateCallback;
-    std::function<void()> renderCallback;
 
-    AppWindow(const std::function<void()> &updateCallback, const std::function<void()> &renderCallback);
+    NodeEditor::NodeWidget nodeWidget;
+
+    AppWindow();
     ~AppWindow();
-    void run() const;
+
+    void run();
+    void update();
+    void render();
 };
 
 #endif //SYNTHCREATOR_APPWINDOW_H

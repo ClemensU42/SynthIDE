@@ -9,9 +9,9 @@
 #include <backends/imgui_impl_opengl3.h>
 #include <backends/imgui_impl_glfw.h>
 
-#include "ui/core/RenderingLoop.h"
+#include "rendering_backend/AppWindow.h"
 
-void RenderingLoop() {
+void AppWindow::render() {
 
     glClear(GL_COLOR_BUFFER_BIT);
 
@@ -20,9 +20,8 @@ void RenderingLoop() {
     ImGui::NewFrame();
     ImGui::DockSpaceOverViewport();
 
-    ImGui::ShowDemoWindow();
+    this->nodeWidget.Render();
 
     ImGui::Render();
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-
 }

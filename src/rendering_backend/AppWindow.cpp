@@ -12,15 +12,15 @@
 #include <backends/imgui_impl_glfw.h>
 #include <backends/imgui_impl_opengl3.h>
 
+#include "imnodes.h"
+
 
 void error_callback(int error, const char* description) {
     fprintf (stderr, "GLFW Error: %s\n", description);
 }
 
-AppWindow::AppWindow(const std::function<void()> &updateCallback, const std::function<void()> &renderCallback) {
+AppWindow::AppWindow() {
 
-    this->updateCallback = updateCallback;
-    this->renderCallback = renderCallback;
 
     // Initialize GLFW and create GLFWwindow
     if (!glfwInit()) {
@@ -50,6 +50,7 @@ AppWindow::AppWindow(const std::function<void()> &updateCallback, const std::fun
 
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
+    ImNodes::CreateContext();
     ImGui::StyleColorsDark();
     ImGuiIO& io = ImGui::GetIO(); (void)io;
     io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
@@ -65,13 +66,14 @@ AppWindow::~AppWindow() {
 
     ImGui_ImplOpenGL3_Shutdown();
     ImGui_ImplGlfw_Shutdown();
+    ImNodes::DestroyContext();
     ImGui::DestroyContext();
 
     glfwDestroyWindow(window);
     glfwTerminate();
 }
 
-void AppWindow::run() const {
+void AppWindow::run() {
 
     while (!glfwWindowShouldClose(window)) {
 /*
@@ -79,8 +81,8 @@ void AppWindow::run() const {
 */
 
         // TODO: multithread this shit
-        updateCallback();
-        renderCallback();
+        update();
+        render();
 
         glfwSwapBuffers(window);
         glfwPollEvents();

@@ -2,15 +2,19 @@
 #define GLFW_INCLUDE_NONE
 
 #include "rendering_backend/AppWindow.h"
-#include "ui/core/RenderingLoop.h"
 
-void DummyUpdate() {
+void AppWindow::update() {
 
 }
 
 int main(int argc, char *argv[]) {
 
-    const AppWindow appWindow(&DummyUpdate, &RenderingLoop);
+    AppWindow appWindow;
+
+    appWindow.nodeWidget.nodes.push_back(
+        std::make_unique<NodeEditor::MidiNode>(NodeEditor::MidiNode())
+    );
+
     appWindow.run();
 
     return 0;
