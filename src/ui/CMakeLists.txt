@@ -1,4 +1,4 @@
 
 target_sources(SynthCreator PUBLIC
-    AppWindow.cpp
+    core/RenderingLoop.cpp
 )

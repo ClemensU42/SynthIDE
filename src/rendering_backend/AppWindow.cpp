@@ -1,26 +1,26 @@
 //
 // Created by clemens on 14.12.25.
 //
-#define GLAD_GL_IMPLEMENTATION
 #include <glad/glad.h>
+#include <GLFW/glfw3.h>
 
 #include "rendering_backend/AppWindow.h"
 
 #include <cstdio>
 
-#define GLFW_INCLUDE_NONE
-#include <GLFW/glfw3.h>
-
-#include "imgui.h"
-#include "backends/imgui_impl_glfw.h"
-#include "backends/imgui_impl_opengl3.h"
+#include <imgui.h>
+#include <backends/imgui_impl_glfw.h>
+#include <backends/imgui_impl_opengl3.h>
 
 
 void error_callback(int error, const char* description) {
     fprintf (stderr, "GLFW Error: %s\n", description);
 }
 
-AppWindow::AppWindow() {
+AppWindow::AppWindow(const std::function<void()> &updateCallback, const std::function<void()> &renderCallback) {
+
+    this->updateCallback = updateCallback;
+    this->renderCallback = renderCallback;
 
     // Initialize GLFW and create GLFWwindow
     if (!glfwInit()) {
@@ -74,18 +74,13 @@ AppWindow::~AppWindow() {
 void AppWindow::run() const {
 
     while (!glfwWindowShouldClose(window)) {
+/*
 
-        glClear(GL_COLOR_BUFFER_BIT);
+*/
 
-        ImGui_ImplOpenGL3_NewFrame();
-        ImGui_ImplGlfw_NewFrame();
-        ImGui::NewFrame();
-        ImGui::DockSpaceOverViewport();
-
-        ImGui::ShowDemoWindow();
-
-        ImGui::Render();
-        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+        // TODO: multithread this shit
+        updateCallback();
+        renderCallback();
 
         glfwSwapBuffers(window);
         glfwPollEvents();
