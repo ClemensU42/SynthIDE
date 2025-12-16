@@ -12,7 +12,7 @@ int main(int argc, char *argv[]) {
     AppWindow appWindow;
 
     appWindow.nodeWidget.nodes.push_back(
-        std::make_unique<NodeEditor::MidiNode>(NodeEditor::MidiNode())
+        std::make_unique<UI::MidiNode>(UI::MidiNode())
     );
 
     appWindow.run();

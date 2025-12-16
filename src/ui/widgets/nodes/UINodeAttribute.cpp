@@ -8,21 +8,21 @@
 #include <vector>
 
 
-NodeEditor::UINodeAttribute::UINodeAttribute(int id, AttributeType type, AttributeIO io, std::string name) {
+UI::UINodeAttribute::UINodeAttribute(int id, AttributeType type, AttributeIO io, std::string name) {
     this->id = id;
     this->name = std::move(name);
     this->type = type;
     this->io = io;
 }
 
-NodeEditor::UINodeAttribute::UINodeAttribute(AttributeType type, AttributeIO io, std::string name) {
+UI::UINodeAttribute::UINodeAttribute(AttributeType type, AttributeIO io, std::string name) {
     this->id = get_unique_id();
     this->name = std::move(name);
     this->type = type;
     this->io = io;
 }
 
-int NodeEditor::get_unique_id() {
+int UI::get_unique_id() {
     static std::vector<int> used_ids;
     static std::random_device rd;
     static std::mt19937 mt(rd());

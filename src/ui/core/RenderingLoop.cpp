@@ -13,15 +13,19 @@
 
 void AppWindow::render() {
 
+    // Clear screen
     glClear(GL_COLOR_BUFFER_BIT);
 
+    // Start the new ImGui frame
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplGlfw_NewFrame();
     ImGui::NewFrame();
     ImGui::DockSpaceOverViewport();
 
+    // Render everything
     this->nodeWidget.Render();
 
+    // Render the UI to the screen
     ImGui::Render();
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 }

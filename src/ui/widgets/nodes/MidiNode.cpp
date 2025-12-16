@@ -7,12 +7,12 @@
 #include <imgui.h>
 #include <imnodes.h>
 
-NodeEditor::MidiNode::MidiNode() {
+UI::MidiNode::MidiNode() {
     this->attributes.emplace_back(AttributeType::CV, AttributeIO::OUTPUT, "Control Voltage");
     this->id = get_unique_id();
 }
 
-void NodeEditor::MidiNode::render() {
+void UI::MidiNode::render() {
     ImNodes::BeginNode(this->id);
 
     ImNodes::BeginNodeTitleBar();

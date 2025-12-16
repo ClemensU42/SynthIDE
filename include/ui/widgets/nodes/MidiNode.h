@@ -6,7 +6,12 @@
 #define SYNTHCREATOR_MIDINODE_H
 
 #include "ui/widgets/nodes/UINodeBase.h"
-namespace NodeEditor {
+namespace UI {
+    /**
+     * To be implemented...
+     *
+     * see Issue #6
+     */
     class MidiNode : public UINodeBase {
     public:
         MidiNode();

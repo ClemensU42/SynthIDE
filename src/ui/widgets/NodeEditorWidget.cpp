@@ -2,12 +2,12 @@
 // Created by clemens on 15.12.25.
 //
 
-#include "ui/widgets/NodeWidget.h"
+#include "ui/widgets/NodeEditorWidget.h"
 
 #include <imgui.h>
 #include <imnodes.h>
 
-void NodeEditor::NodeWidget::Render() {
+void UI::NodeEditorWidget::Render() {
 
     ImGui::Begin("Node Editor");
     ImNodes::BeginNodeEditor();

@@ -8,22 +8,26 @@
 #include <functional>
 #include <GLFW/glfw3.h>
 
-#include "ui/widgets/NodeWidget.h"
+#include "ui/widgets/NodeEditorWidget.h"
 #include "ui/widgets/nodes/MidiNode.h"
 
+/**
+ * The AppWindow serves as the Basis of the Application.
+ * It holds the Window itself, all UI widgets and contains the main rendering and update loop.
+ */
 class AppWindow {
 public:
-    bool initialized = false;
-    GLFWwindow* window;
+    bool initialized = false;           ///< Checks if everything is initialized correctly.
+    GLFWwindow* window;                 ///< Main Window to render to.
 
-    NodeEditor::NodeWidget nodeWidget;
+    UI::NodeEditorWidget nodeWidget;
 
     AppWindow();
     ~AppWindow();
 
-    void run();
-    void update();
-    void render();
+    void run();                         ///< Runs the Application and starts the main loop
+    void update();                      ///< Used to handle everything logic-related
+    void render();                      ///< Used to handle everything rendering related
 };
 
 #endif //SYNTHCREATOR_APPWINDOW_H
