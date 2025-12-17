@@ -4,4 +4,5 @@ target_sources(SynthCreator PUBLIC
         widgets/NodeEditorWidget.cpp
         widgets/nodes/MidiNode.cpp
         widgets/nodes/UINodeAttribute.cpp
+        widgets/nodes/WaveformSynth.cpp
 )
